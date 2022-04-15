@@ -1,0 +1,42 @@
+html, body, .wrapper {
+    height: 100%;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    background: rgb(0,117,198);
+    background: linear-gradient(0deg, rgba(0,117,198,1) 0%, rgba(30,127,194,1) 35%, rgba(129,193,255,.8) 100%);
+}
+
+.btn {
+    font-size: 20px;
+}
+.btn-remove {
+    border-radius: 50%;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+ul {
+    padding: 0;
+}
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffda00;
+    padding: 4px 15px;
+    margin-bottom: .5rem;
+}
+li:hover {
+    cursor: pointer;
+}
+li.done {
+    background-color: #7cdb1f;
+}
