@@ -12,10 +12,16 @@
         <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="col-4">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Write something" id="myInput">
-                        <button class="btn btn-success" type="button" data-action="add-item" title="Add">+</button>
-                    </div>
+                    <form id="mainForm" class="mb-3">
+                        <h3>TODO List</h3>
+                        <label for="myInput" class="form-label">Write some task</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="myInput" autofocus>
+                            <button class="btn btn-success" type="submit" data-action="add-item" title="Add">+</button>
+                        </div>
+                        <div class="form-text text-danger" id="errorText">Please provide a valid task.</div>
+                    </form>
+
                     <ul class="list"></ul>
                 </div>
             </div>

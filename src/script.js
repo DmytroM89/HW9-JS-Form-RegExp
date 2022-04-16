@@ -1,6 +1,7 @@
 const wrapper = document.querySelector('.wrapper');
 const input = document.querySelector('#myInput');
-const list = document.querySelector('.list');
+const list = document.querySelector('.list')
+const mainForm = document.querySelector('#mainForm');
 
 wrapper.addEventListener('click', (e) => {
     let action = e.target.dataset.action;
@@ -19,18 +20,25 @@ wrapper.addEventListener('click', (e) => {
     }
 });
 
+input.addEventListener('input', (e) => {
+    verivication(e.target.value);
+});
+
+mainForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+});
+
 function addItem() {
     const liItem = document.createElement('li');
     liItem.dataset.action = 'state-toggle';
-    if (input.value) {
+
+    if (verivication(input.value) && input.value) {
         liItem.innerHTML = `${input.value} <button class="btn btn-danger btn-sm btn-remove" data-action="remove-item" title="Remove">-</button>`;
-    } else {
-        alert('Input is empty');
-        return;
+        list.append(liItem);
+        input.value = '';
     }
 
-    list.append(liItem);
-    input.value = '';
+    return false;
 }
 
 function removeItem(el) {
@@ -41,4 +49,19 @@ function removeItem(el) {
 
 function stateToggle(el) {
     el.classList.toggle('done');
+}
+
+function verivication(str) {
+    const regExp = /^[a-zA-Z0-9]{2,25}$/g;
+    let check = regExp.test(str);
+    let result = false;
+
+    if (!check && str) {
+        mainForm.classList.add('invalid');
+    } else {
+        mainForm.classList.remove('invalid');
+        result = true;
+    }
+
+    return result;
 }

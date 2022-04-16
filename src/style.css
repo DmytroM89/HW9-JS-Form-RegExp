@@ -9,6 +9,18 @@ body {
     background: linear-gradient(0deg, rgba(0,117,198,1) 0%, rgba(30,127,194,1) 35%, rgba(129,193,255,.8) 100%);
 }
 
+#errorText {
+    display: none;
+}
+form.invalid #errorText {
+    display: block;
+}
+form.invalid input {
+    color: #e82d2d !important;
+    border-color: #e82d2d !important;
+    box-shadow: 0 0 0 0.25rem rgba(232,45,45, .25) !important;
+}
+
 .btn {
     font-size: 20px;
 }
