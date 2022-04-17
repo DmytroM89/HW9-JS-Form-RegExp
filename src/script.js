@@ -53,14 +53,12 @@ function stateToggle(el) {
 
 function verivication(str) {
     const regExp = /^[a-zA-Z0-9]{2,25}$/g;
-    let check = regExp.test(str);
-    let result = false;
+    let result = regExp.test(str);
 
-    if (!check && str) {
+    if (!result && str) {
         mainForm.classList.add('invalid');
     } else {
         mainForm.classList.remove('invalid');
-        result = true;
     }
 
     return result;
